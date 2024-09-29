@@ -41,8 +41,7 @@ class MainClass(NexusPHP, ReseedPasskey):
                 # url='/attendance.php',
                 url='/',
                 method=self.sign_in_by_get,
-                # succeed_regex=['今日已签到'],
-                succeed_regex=['欢迎'],
+                succeed_regex=['今日已签到'],
                 assert_state=(check_sign_in_state, SignState.NO_SIGN_IN),
                 is_base_content=True
             ),
