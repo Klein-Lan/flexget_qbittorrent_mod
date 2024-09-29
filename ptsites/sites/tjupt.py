@@ -35,13 +35,13 @@ class MainClass(NexusPHP, ReseedPasskey):
     }
 
     def sign_in_build_workflow(self, entry: SignInEntry, config: dict) -> list[Work]:
-        entry['extra_msg'] = f'未签到: {urljoin(self.URL, "/attendance.php")}'
+        entry['extra_msg'] = f'因为站点规则，请自己手动签到: {urljoin(self.URL, "/attendance.php")}'
         return [
             Work(
                 # url='/attendance.php',
                 url='/',
                 method=self.sign_in_by_get,
-                succeed_regex=['今日已签到'],
+                succeed_regex=['欢迎'],
                 assert_state=(check_sign_in_state, SignState.NO_SIGN_IN),
                 is_base_content=True
             ),
